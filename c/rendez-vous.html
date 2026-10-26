@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Prendre rendez-vous · Laure Grousset</title>
+<meta name="description" content="Réservez votre séance de sophrologie en ligne : séance, jour, heure, paiement sécurisé.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>:root{--papier:#f7f1ea;--papier-2:#efe3d6;--sauge:#a65f45;--sauge-2:#f1dfd4;--nuit:#3a2a24;--nuit-txt:#f3e9e0;--encre:#2e2420;--doux:#7a6a61;--serif:'Marcellus',Georgia,serif;--sans:'Jost',system-ui,sans-serif} .brand{display:flex;align-items:center;gap:12px} .brand>span>span{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--doux)} .brand>span{text-transform:none;letter-spacing:0}</style>
+</head>
+<body data-img="../img/">
+<div class="demo"><b>Maquette C · Sable et terracotta</b> · démo pour Laure Grousset, textes et photos indicatifs · <a href="../index.html" style="color:inherit;opacity:.8">les 3 maquettes</a> · <a href="../proposition.html" style="color:inherit;opacity:.8">la proposition</a> · <a href="../espace.html" style="color:inherit;opacity:.8">l'espace de gestion</a></div>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true" style="color:var(--sauge);flex:none"><path d="M4 30a18 18 0 0 1 36 0" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 30a10 10 0 0 1 20 0" fill="currentColor" opacity=".85"/><line x1="2" y1="34" x2="42" y2="34" stroke="currentColor" stroke-width="1.4"/></svg><span><strong>Laure Grousset</strong><span>Sophrologue · Marseille</span></span></a>
+    <nav class="links" id="menu" aria-label="Navigation principale"><a href="la-sophrologie.html">La sophrologie et moi</a><a href="seances.html">Séances et tarifs</a><a href="cabinet.html">Cabinet et contact</a><a class="cta" href="rendez-vous.html">Prendre rendez-vous</a></nav>
+    <button class="burger" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+</header>
+<main>
+<section class="entete"><div class="wrap"><div class="fil"><a href="index.html">Accueil</a> / Prendre rendez-vous</div><h1>Prendre <em>rendez-vous</em>.</h1><p>Choisissez votre séance, un jour et une heure. Laure confirme votre demande sous 24 h ; le paiement n'est encaissé qu'après validation.</p></div></section><section class="rdv" id="rdv">
+  <div class="wrap rdv-grid">
+    <div class="rdv-intro">
+      <div class="label">Prendre rendez-vous</div>
+      <p style="margin-top:14px">Annulation ou report sans frais jusqu'à 48 h avant la séance.</p>
+      <div class="recap" aria-live="polite">
+        <div><span>Séance</span><b id="r-seance">—</b></div>
+        <div><span>Date</span><b id="r-date">—</b></div>
+        <div><span>Heure</span><b id="r-heure">—</b></div>
+        <div><span>Montant</span><b id="r-prix">—</b></div>
+      </div>
+    </div>
+    <div class="module">
+      <div class="pas" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+
+      <div class="ecran on" id="e1">
+        <h3>Votre séance</h3><p class="aide">Étape 1 sur 4</p>
+        <div class="choix-seance" id="choix-seance"></div>
+        <div class="nav-ecran"><span></span><button class="cta suivant" id="s1" disabled>Continuer</button></div>
+      </div>
+
+      <div class="ecran" id="e2">
+        <h3>Jour et heure</h3><p class="aide">Étape 2 sur 4 · les jours barrés sont complets</p>
+        <div class="mois"><span id="mois"></span></div>
+        <div class="jours" id="jours"></div>
+        <div id="zone-heures"><p class="vide">Choisissez un jour pour voir les horaires disponibles.</p></div>
+        <div class="nav-ecran"><button class="retour" data-retour="1">Retour</button><button class="cta suivant" id="s2" disabled>Continuer</button></div>
+      </div>
+
+      <div class="ecran" id="e3">
+        <h3>Vos coordonnées</h3><p class="aide">Étape 3 sur 4</p>
+        <form id="form-coord" novalidate>
+          <div class="deux">
+            <div class="champ"><label for="prenom">Prénom</label><input id="prenom" autocomplete="given-name" required></div>
+            <div class="champ"><label for="nom">Nom</label><input id="nom" autocomplete="family-name" required></div>
+          </div>
+          <div class="champ"><label for="email">E-mail</label><input id="email" type="email" autocomplete="email" required></div>
+          <div class="champ"><label for="tel">Téléphone</label><input id="tel" type="tel" autocomplete="tel" required></div>
+          <div class="champ"><label for="msg">Ce qui vous amène (facultatif)</label><textarea id="msg" rows="3"></textarea></div>
+          <p class="erreur" id="err" role="alert"></p>
+        </form>
+        <div class="nav-ecran"><button class="retour" data-retour="2">Retour</button><button class="cta" id="s3">Continuer</button></div>
+      </div>
+
+      <div class="ecran" id="e4">
+        <h3>Paiement sécurisé</h3><p class="aide">Étape 4 sur 4</p>
+        <p class="note-demo">Démo : aucun paiement réel. Sur le vrai site, la carte est saisie chez le prestataire de paiement (Stripe), et le montant n'est encaissé qu'après votre validation.</p>
+        <div class="carte-paiement">
+          <div class="ligne-cb"><span>Carte bancaire</span><span>Visa · Mastercard · CB</span></div>
+          <div class="ligne-cb"><span>Apple Pay · Google Pay</span><span>sur téléphone</span></div>
+        </div>
+        <div class="nav-ecran"><button class="retour" data-retour="3">Retour</button><button class="cta" id="s4">Envoyer ma demande</button></div>
+      </div>
+
+      <div class="ecran" id="e5">
+        <div class="succes">
+          <div class="rond" aria-hidden="true">✓</div>
+          <h3>Demande envoyée</h3>
+          <p id="msg-ok">Laure confirme votre rendez-vous sous 24 h par e-mail. Vous recevrez un rappel la veille.</p>
+          <button class="cta ligne" id="recommencer" style="margin-top:26px">Faire une autre réservation</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="pied">
+      <div><strong>Laure Grousset</strong><p style="margin-top:12px;max-width:26em">Sophrologue à Marseille et en visio. La sophrologie accompagne et ne remplace pas un suivi médical.</p></div>
+      <div><a href="la-sophrologie.html">La sophrologie et moi</a><a href="seances.html">Séances et tarifs</a><a href="rendez-vous.html">Prendre rendez-vous</a><a href="cabinet.html">Cabinet et contact</a></div>
+      <div><a href="mentions-legales.html">Mentions légales</a><a href="cgv.html">Conditions générales de vente</a><a href="confidentialite.html">Confidentialité et cookies</a></div>
+    </div>
+    <div class="copy"><span>© 2026 Laure Grousset</span><span>Maquette réalisée par Mindflow Origin</span></div>
+  </div>
+</footer>
+<script src="../site.js"></script>
+</body>
+</html>
