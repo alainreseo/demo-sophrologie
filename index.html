@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Laure Grousset · Sophrologue à Marseille</title>
+<meta name="description" content="Séances de sophrologie à Marseille et en visio : stress, sommeil, confiance, préparation aux examens. Prise de rendez-vous en ligne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --papier:#f4efe7; --papier-2:#ebe4d8; --encre:#1f211d; --doux:#6d6a62; --ligne:rgba(31,33,29,.16);
+  --sauge:#5e7464; --sauge-2:#dfe6dc; --nuit:#1d2420; --nuit-txt:#e9e5dc;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papier);color:var(--encre);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--sauge);outline-offset:3px}
+.wrap{width:min(1280px,100%);margin:0 auto;padding:0 40px}
+.label{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sauge)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(38px,4.6vw,60px);line-height:1.05}
+.demo{background:var(--nuit);color:var(--nuit-txt);font-size:13px;text-align:center;padding:9px 16px}
+.demo b{font-weight:600}
+
+/* en-tête */
+header{position:sticky;top:0;z-index:20;background:rgba(244,239,231,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--ligne)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{text-decoration:none;line-height:1.1}
+.brand strong{display:block;font-family:var(--serif);font-weight:500;font-size:26px}
+.brand span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--doux)}
+.links{display:flex;gap:34px;align-items:center;font-size:15px}
+.links a{text-decoration:none;color:#3e403a}
+.links a:hover{color:var(--encre)}
+.links a.cta,.links a.cta:hover{color:#fff}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--encre);color:#fff;text-decoration:none;border:0;border-radius:99px;padding:13px 24px;font-size:15px;font-weight:500;transition:background .2s}
+.cta:hover{background:var(--sauge)}
+.cta.ligne{background:transparent;color:var(--encre);border:1px solid var(--encre)}
+.cta.ligne:hover{background:var(--encre);color:#fff}
+.burger{display:none;background:none;border:1px solid var(--ligne);border-radius:99px;padding:9px 16px;font-size:14px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;min-height:calc(100vh - 116px);border-bottom:1px solid var(--ligne)}
+.hero-txt{padding:72px 56px 48px 0;display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.hero h1{font-size:clamp(56px,7.4vw,112px);line-height:.92;letter-spacing:-.025em;margin-top:22px}
+.hero h1 em{font-style:italic;color:var(--sauge)}
+.hero p.intro{max-width:30em;color:#4a4b45;font-size:19px;margin:28px 0 34px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-foot{display:flex;gap:36px;flex-wrap:wrap;font-size:14px;color:var(--doux);border-top:1px solid var(--ligne);padding-top:20px}
+.hero-foot b{display:block;color:var(--encre);font-weight:500;font-size:15px}
+.hero-img{position:relative;margin-right:-40px;overflow:hidden;background:#cfc6b8}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:78% center}
+.hero-img figcaption{position:absolute;left:24px;bottom:22px;color:#fff;font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.35)}
+
+/* motifs */
+.motifs{padding:120px 0 110px}
+.motifs-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:start}
+.motifs h2{margin-top:18px}
+.motifs p.sous{color:var(--doux);max-width:24em;margin-top:22px}
+.liste{border-top:1px solid var(--ligne)}
+.liste li{list-style:none;display:grid;grid-template-columns:56px 1fr auto;gap:18px;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--ligne)}
+.liste ol{margin:0;padding:0}
+.liste .n{font-family:var(--serif);font-size:20px;color:var(--sauge)}
+.liste h3{font-size:31px;line-height:1.15}
+.liste p{margin:6px 0 0;color:var(--doux);font-size:16px;max-width:36em}
+.liste a{font-size:14px;white-space:nowrap;text-decoration:none;border-bottom:1px solid var(--ligne);padding-bottom:2px}
+.liste a:hover{border-color:var(--encre)}
+
+/* à propos */
+.apropos{background:var(--papier-2);padding:120px 0;border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne)}
+.apropos-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.photos{position:relative;height:640px}
+.photos .p1{position:absolute;left:0;top:0;width:72%;height:82%;object-fit:cover}
+.photos .p2{position:absolute;right:0;bottom:0;width:46%;height:52%;object-fit:cover;border:10px solid var(--papier-2)}
+.photos figcaption{position:absolute;left:0;bottom:0;font-size:13px;color:var(--doux);max-width:46%}
+.apropos blockquote{margin:28px 0;font-family:var(--serif);font-size:clamp(28px,2.8vw,38px);line-height:1.2;font-style:italic}
+.apropos p{color:#4a4b45;max-width:33em}
+.signature{display:flex;gap:40px;margin-top:34px;padding-top:24px;border-top:1px solid var(--ligne);font-size:14px;color:var(--doux)}
+.signature b{display:block;color:var(--encre);font-weight:500}
+
+/* séances */
+.seances{padding:120px 0}
+.seances-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:48px}
+.seances-head p{color:var(--doux);max-width:26em;margin:0}
+.selecteur{display:grid;grid-template-columns:.9fr 1.1fr;border-top:1px solid var(--encre)}
+.onglets{display:flex;flex-direction:column}
+.onglet{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:baseline;text-align:left;background:none;border:0;border-bottom:1px solid var(--ligne);padding:24px 18px 24px 0;transition:color .2s,padding .2s}
+.onglet .n{font-family:var(--serif);color:var(--doux);font-size:18px}
+.onglet .t{font-family:var(--serif);font-size:28px;line-height:1.15}
+.onglet .d{font-size:14px;color:var(--doux)}
+.onglet[aria-selected="true"]{padding-left:14px}
+.onglet[aria-selected="true"] .t{color:var(--sauge);font-style:italic}
+.onglet:hover .t{color:var(--sauge)}
+.scene{border-left:1px solid var(--ligne);padding:0 0 0 48px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;margin-top:24px}
+.scene img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;transition:opacity .4s}
+.scene h3{font-size:40px;line-height:1.05}
+.scene .meta{display:flex;gap:28px;margin:18px 0;padding:14px 0;border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne);font-size:15px}
+.scene .meta b{display:block;font-family:var(--serif);font-size:30px;font-weight:500;line-height:1}
+.scene p{color:#4a4b45;font-size:16px}
+.scene ul{padding-left:18px;color:#4a4b45;font-size:15px;margin:0 0 26px}
+
+/* déroulé */
+.deroule{background:var(--nuit);color:var(--nuit-txt);padding:120px 0}
+.deroule .label{color:#a9bfae}
+.deroule h2{max-width:14em;margin-top:18px}
+.etapes{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:64px;border-top:1px solid rgba(233,229,220,.2)}
+.etape{padding:34px 36px 0 0}
+.etape + .etape{padding-left:36px;border-left:1px solid rgba(233,229,220,.2)}
+.etape .n{font-family:var(--serif);font-size:56px;line-height:1;color:#a9bfae}
+.etape h3{font-size:30px;margin:18px 0 10px}
+.etape p{color:#bfbab0;font-size:16px;margin:0}
+
+/* réservation */
+.rdv{padding:120px 0;border-bottom:1px solid var(--ligne)}
+.rdv-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}
+.rdv-intro p{color:var(--doux);max-width:24em}
+.recap{margin-top:34px;border-top:1px solid var(--ligne)}
+.recap div{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid var(--ligne);font-size:15px}
+.recap span{color:var(--doux)}
+.recap b{font-weight:500;text-align:right}
+.module{background:#fbf8f3;border:1px solid var(--ligne);padding:38px 40px}
+.pas{display:flex;gap:8px;margin-bottom:30px}
+.pas i{flex:1;height:3px;background:var(--papier-2);font-style:normal}
+.pas i.on{background:var(--sauge)}
+.ecran{display:none}
+.ecran.on{display:block;animation:fondu .35s ease}
+@keyframes fondu{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.ecran h3{font-size:32px;margin-bottom:6px}
+.ecran .aide{color:var(--doux);font-size:15px;margin:0 0 24px}
+.choix-seance{display:grid;gap:10px}
+.choix-seance button{display:flex;justify-content:space-between;align-items:center;text-align:left;background:#fff;border:1px solid var(--ligne);padding:16px 18px;transition:border-color .2s}
+.choix-seance button:hover{border-color:var(--encre)}
+.choix-seance button[aria-pressed="true"]{border-color:var(--sauge);background:var(--sauge-2)}
+.choix-seance small{display:block;color:var(--doux);font-size:13px}
+.mois{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font-family:var(--serif);font-size:24px}
+.jours{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center}
+.jours .nom{font-size:12px;color:var(--doux);letter-spacing:.08em;text-transform:uppercase;padding-bottom:4px}
+.jour{background:#fff;border:1px solid var(--ligne);padding:11px 0;font-size:15px}
+.jour:disabled{background:transparent;border-color:transparent;color:#b9b4aa;cursor:default;text-decoration:line-through}
+.jour[aria-pressed="true"]{background:var(--encre);color:#fff;border-color:var(--encre)}
+.heures{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
+.heure{background:#fff;border:1px solid var(--ligne);padding:10px 0;font-size:15px}
+.heure[aria-pressed="true"]{border-color:var(--sauge);color:var(--sauge);font-weight:600;background:var(--sauge-2)}
+.vide{color:var(--doux);font-size:14px;margin-top:22px}
+form .champ{display:grid;gap:6px;margin-bottom:16px}
+form label{font-size:14px;font-weight:500}
+form input,form textarea{font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--ligne);background:#fff;border-radius:0}
+form input:focus,form textarea:focus{outline:2px solid var(--sauge);outline-offset:0;border-color:transparent}
+.deux{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.erreur{color:#9a3b2b;font-size:14px;min-height:20px}
+.carte-paiement{border:1px solid var(--ligne);background:#fff;padding:18px;display:grid;gap:12px;margin-bottom:12px}
+.carte-paiement .ligne-cb{display:flex;justify-content:space-between;color:var(--doux);font-size:15px}
+.note-demo{font-size:13px;color:var(--doux);background:var(--papier-2);padding:10px 14px;margin-bottom:18px}
+.nav-ecran{display:flex;justify-content:space-between;align-items:center;margin-top:28px}
+.retour{background:none;border:0;color:var(--doux);font-size:15px;text-decoration:underline;text-underline-offset:3px}
+.suivant:disabled{opacity:.35;cursor:not-allowed}
+.succes{text-align:center;padding:20px 0}
+.succes .rond{width:64px;height:64px;border-radius:50%;background:var(--sauge-2);color:var(--sauge);display:grid;place-items:center;margin:0 auto 20px;font-size:28px}
+.succes p{color:var(--doux);max-width:26em;margin:10px auto 0}
+
+/* cabinet */
+.cabinet{padding:120px 0}
+.cabinet-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:stretch}
+.cabinet-grid > img{width:100%;height:100%;min-height:460px;object-fit:cover}
+.infos dl{margin:30px 0 0;border-top:1px solid var(--ligne)}
+.infos dl div{display:grid;grid-template-columns:140px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--ligne);font-size:16px}
+.infos dt{color:var(--doux)}
+.infos dd{margin:0}
+
+footer{background:var(--nuit);color:#bfbab0;padding:70px 0 40px;font-size:15px}
+.pied{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+footer strong{font-family:var(--serif);font-weight:500;font-size:28px;color:var(--nuit-txt)}
+footer a{color:#bfbab0;text-decoration:none;display:block;margin-bottom:8px}
+footer a:hover{color:#fff}
+.copy{margin-top:50px;padding-top:20px;border-top:1px solid rgba(233,229,220,.15);font-size:13px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.vu{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.ecran.on{animation:none}html{scroll-behavior:auto}}
+
+@media (max-width:1100px){
+  .links{display:none}
+  .burger{display:inline-block}
+  .links.ouvert{display:flex;position:absolute;top:76px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:18px;background:var(--papier);padding:22px;border-bottom:1px solid var(--ligne)}
+}
+@media (max-width:980px){
+  .wrap{padding:0 22px}
+  .links.ouvert{display:flex;position:absolute;top:76px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:18px;background:var(--papier);padding:22px;border-bottom:1px solid var(--ligne)}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-txt{padding:44px 0 36px}
+  .hero-img{margin:0 -22px;height:62vh}
+  .motifs,.apropos,.seances,.deroule,.rdv,.cabinet{padding:80px 0}
+  .motifs-grid,.apropos-grid,.rdv-grid,.cabinet-grid{grid-template-columns:1fr;gap:44px}
+  .liste li{grid-template-columns:40px 1fr}
+  .liste a{grid-column:2}
+  .photos{height:480px}
+  .seances-head{flex-direction:column;align-items:start}
+  .selecteur{grid-template-columns:1fr}
+  .scene{border-left:0;padding:0;grid-template-columns:1fr;margin-top:30px}
+  .scene img{aspect-ratio:16/11}
+  .etapes{grid-template-columns:1fr}
+  .etape,.etape + .etape{padding:30px 0;border-left:0;border-bottom:1px solid rgba(233,229,220,.2)}
+  .module{padding:26px 20px}
+  .heures{grid-template-columns:repeat(3,1fr)}
+  .deux{grid-template-columns:1fr}
+  .pied{grid-template-columns:1fr}
+  .infos dl div{grid-template-columns:110px 1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="demo"><b>Démo</b> préparée pour Laure Grousset · textes, photos et tarifs indicatifs, remplacés par les vôtres · <a href="espace.html" style="color:#a9bfae">voir votre espace de gestion →</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#"><strong>Laure Grousset</strong><span>Sophrologue · Marseille</span></a>
+    <nav class="links" id="menu" aria-label="Navigation principale">
+      <a href="#motifs">Pourquoi consulter</a>
+      <a href="#apropos">La sophrologie et moi</a>
+      <a href="#seances">Séances et tarifs</a>
+      <a href="#cabinet">Le cabinet</a>
+      <a class="cta" href="#rdv">Prendre rendez-vous</a>
+    </nav>
+    <button class="burger" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+</header>
+
+<main>
+<section class="wrap hero">
+  <div class="hero-txt">
+    <div>
+      <div class="label">Sophrologie · au cabinet et en visio</div>
+      <h1>Respirer.<br>Se poser.<br><em>Retrouver sa place.</em></h1>
+      <p class="intro">Des séances pour apaiser le stress, retrouver le sommeil et avancer avec confiance. Une écoute attentive et des exercices simples, que vous emportez avec vous.</p>
+      <div class="hero-actions">
+        <a class="cta" href="#rdv">Prendre rendez-vous</a>
+        <a class="cta ligne" href="#apropos">Découvrir la sophrologie</a>
+      </div>
+    </div>
+    <div class="hero-foot">
+      <div><b>Marseille 5e</b>Cabinet calme, accessible</div>
+      <div><b>En visio</b>Partout en France</div>
+      <div><b>Réservation en ligne</b>Confirmée sous 24 h</div>
+    </div>
+  </div>
+  <figure class="hero-img" style="margin-top:0;margin-bottom:0">
+    <img src="img/hero.jpg" alt="Femme assise en silence près d'une fenêtre, dans la lumière du matin" width="1600" height="1900" fetchpriority="high">
+    <figcaption>Un temps pour soi</figcaption>
+  </figure>
+</section>
+
+<section class="motifs" id="motifs">
+  <div class="wrap motifs-grid">
+    <div class="reveal">
+      <div class="label">Pourquoi consulter</div>
+      <h2>Ce qui vous amène, à votre rythme.</h2>
+      <p class="sous">La sophrologie s'appuie sur la respiration, la détente du corps et la visualisation. Quelques séances suffisent souvent à retrouver des repères.</p>
+    </div>
+    <ol class="liste reveal">
+      <li><span class="n">01</span><div><h3>Stress et anxiété</h3><p>Relâcher les tensions, calmer le mental, retrouver de l'espace au quotidien.</p></div><a href="#rdv" data-seance="0">Réserver</a></li>
+      <li><span class="n">02</span><div><h3>Sommeil</h3><p>Apprendre à se détendre le soir et retrouver des nuits plus sereines.</p></div><a href="#rdv" data-seance="0">Réserver</a></li>
+      <li><span class="n">03</span><div><h3>Examens et prise de parole</h3><p>Se préparer, gérer le trac et aborder le jour J avec confiance.</p></div><a href="#rdv" data-seance="0">Réserver</a></li>
+      <li><span class="n">04</span><div><h3>Grossesse et grands changements</h3><p>Traverser une période de transition en restant à l'écoute de soi.</p></div><a href="#rdv" data-seance="0">Réserver</a></li>
+    </ol>
+  </div>
+</section>
+
+<section class="apropos" id="apropos">
+  <div class="wrap apropos-grid">
+    <figure class="photos reveal" style="margin:0">
+      <img class="p1" src="img/cabinet.jpg" alt="Fauteuil clair près d'une fenêtre, dans une lumière douce" loading="lazy">
+      <img class="p2" src="img/eucalyptus.jpg" alt="Branches d'eucalyptus" loading="lazy">
+      <figcaption>Le cabinet : un lieu calme pour se poser.</figcaption>
+    </figure>
+    <div class="reveal">
+      <div class="label">La sophrologie et moi</div>
+      <h2>Un accompagnement simple, concret, bienveillant.</h2>
+      <blockquote>« Chaque séance vous laisse un outil que vous pouvez refaire seul, chez vous. »</blockquote>
+      <p>Ici, votre parcours, votre formation et votre vision de la sophrologie, repris de votre maquette. Quelques lignes suffisent : qui vous êtes, pourquoi vous faites ce métier, ce que vos patients trouvent auprès de vous.</p>
+      <div class="signature">
+        <div><b>Formation</b>Certification en sophrologie</div>
+        <div><b>Approche</b>Respiration, détente, visualisation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seances" id="seances">
+  <div class="wrap">
+    <div class="seances-head reveal">
+      <div><div class="label">Séances et tarifs</div><h2 style="margin-top:18px">Choisir sa séance.</h2></div>
+      <p>Chaque formule se réserve en ligne, en quelques gestes. Vous recevez une confirmation dès que la demande est validée.</p>
+    </div>
+    <div class="selecteur reveal">
+      <div class="onglets" role="tablist" aria-label="Formules de séances" id="onglets"></div>
+      <div class="scene" role="tabpanel" id="scene" tabindex="0" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="deroule">
+  <div class="wrap">
+    <div class="label">Comment se passe une séance</div>
+    <h2>Une heure pour vous, en trois temps.</h2>
+    <div class="etapes">
+      <div class="etape reveal"><div class="n">1</div><h3>On échange</h3><p>Ce qui vous amène, ce que vous ressentez, ce que vous aimeriez changer.</p></div>
+      <div class="etape reveal"><div class="n">2</div><h3>On pratique</h3><p>Respiration, détente du corps, visualisation : guidé, assis ou allongé, sans effort.</p></div>
+      <div class="etape reveal"><div class="n">3</div><h3>Vous repartez outillé</h3><p>Un exercice court à refaire chez vous, adapté à votre quotidien.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="rdv" id="rdv">
+  <div class="wrap rdv-grid">
+    <div class="rdv-intro">
+      <div class="label">Prendre rendez-vous</div>
+      <h2 style="margin-top:18px">Réserver en ligne.</h2>
+      <p style="margin-top:20px">Choisissez votre séance, un jour et une heure. Votre demande est confirmée par Laure sous 24 h ; le paiement n'est encaissé qu'après validation.</p>
+      <div class="recap" aria-live="polite">
+        <div><span>Séance</span><b id="r-seance">—</b></div>
+        <div><span>Date</span><b id="r-date">—</b></div>
+        <div><span>Heure</span><b id="r-heure">—</b></div>
+        <div><span>Montant</span><b id="r-prix">—</b></div>
+      </div>
+    </div>
+    <div class="module">
+      <div class="pas" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+
+      <div class="ecran on" id="e1">
+        <h3>Votre séance</h3><p class="aide">Étape 1 sur 4</p>
+        <div class="choix-seance" id="choix-seance"></div>
+        <div class="nav-ecran"><span></span><button class="cta suivant" id="s1" disabled>Continuer</button></div>
+      </div>
+
+      <div class="ecran" id="e2">
+        <h3>Jour et heure</h3><p class="aide">Étape 2 sur 4 · les jours barrés sont complets</p>
+        <div class="mois"><span id="mois"></span></div>
+        <div class="jours" id="jours"></div>
+        <div id="zone-heures"><p class="vide">Choisissez un jour pour voir les horaires disponibles.</p></div>
+        <div class="nav-ecran"><button class="retour" data-retour="1">Retour</button><button class="cta suivant" id="s2" disabled>Continuer</button></div>
+      </div>
+
+      <div class="ecran" id="e3">
+        <h3>Vos coordonnées</h3><p class="aide">Étape 3 sur 4</p>
+        <form id="form-coord" novalidate>
+          <div class="deux">
+            <div class="champ"><label for="prenom">Prénom</label><input id="prenom" autocomplete="given-name" required></div>
+            <div class="champ"><label for="nom">Nom</label><input id="nom" autocomplete="family-name" required></div>
+          </div>
+          <div class="champ"><label for="email">E-mail</label><input id="email" type="email" autocomplete="email" required></div>
+          <div class="champ"><label for="tel">Téléphone</label><input id="tel" type="tel" autocomplete="tel" required></div>
+          <div class="champ"><label for="msg">Ce qui vous amène (facultatif)</label><textarea id="msg" rows="3"></textarea></div>
+          <p class="erreur" id="err" role="alert"></p>
+        </form>
+        <div class="nav-ecran"><button class="retour" data-retour="2">Retour</button><button class="cta" id="s3">Continuer</button></div>
+      </div>
+
+      <div class="ecran" id="e4">
+        <h3>Paiement sécurisé</h3><p class="aide">Étape 4 sur 4</p>
+        <p class="note-demo">Démo : aucun paiement réel. Sur le vrai site, la carte est saisie chez le prestataire de paiement (Stripe), et le montant n'est encaissé qu'après votre validation.</p>
+        <div class="carte-paiement">
+          <div class="ligne-cb"><span>Carte bancaire</span><span>Visa · Mastercard · CB</span></div>
+          <div class="ligne-cb"><span>Apple Pay · Google Pay</span><span>sur téléphone</span></div>
+        </div>
+        <div class="nav-ecran"><button class="retour" data-retour="3">Retour</button><button class="cta" id="s4">Envoyer ma demande</button></div>
+      </div>
+
+      <div class="ecran" id="e5">
+        <div class="succes">
+          <div class="rond" aria-hidden="true">✓</div>
+          <h3>Demande envoyée</h3>
+          <p id="msg-ok">Laure confirme votre rendez-vous sous 24 h par e-mail. Vous recevrez un rappel la veille.</p>
+          <button class="cta ligne" id="recommencer" style="margin-top:26px">Faire une autre réservation</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cabinet" id="cabinet">
+  <div class="wrap cabinet-grid">
+    <img class="reveal" src="img/fauteuil.jpg" alt="Fauteuil et plante dans une pièce baignée de soleil" loading="lazy">
+    <div class="infos reveal">
+      <div class="label">Le cabinet</div>
+      <h2 style="margin-top:18px">Venir au cabinet.</h2>
+      <dl>
+        <div><dt>Adresse</dt><dd>Marseille 5e (adresse exacte de votre maquette)</dd></div>
+        <div><dt>Horaires</dt><dd>Du mardi au samedi, sur rendez-vous</dd></div>
+        <div><dt>Accès</dt><dd>Métro, bus, stationnement à proximité</dd></div>
+        <div><dt>En visio</dt><dd>Séances à distance, partout en France</dd></div>
+        <div><dt>Contact</dt><dd>Formulaire, e-mail et téléphone</dd></div>
+      </dl>
+      <a class="cta" href="#rdv" style="margin-top:34px">Prendre rendez-vous</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="pied">
+      <div><strong>Laure Grousset</strong><p style="margin-top:12px;max-width:26em">Sophrologue à Marseille et en visio. La sophrologie ne remplace pas un suivi médical.</p></div>
+      <div><a href="#seances">Séances et tarifs</a><a href="#rdv">Prendre rendez-vous</a><a href="#cabinet">Le cabinet</a></div>
+      <div><a href="#">Mentions légales</a><a href="#">Conditions générales de vente</a><a href="#">Confidentialité et cookies</a></div>
+    </div>
+    <div class="copy"><span>© 2026 Laure Grousset</span><span>Démo réalisée par Mindflow Origin</span></div>
+  </div>
+</footer>
+
+<script>
+const SEANCES=[
+ {t:"Première séance",d:"75 min",p:70,img:"img/respiration.jpg",alt:"Main posée sur la poitrine, respiration calme",txt:"Un temps pour faire connaissance, comprendre ce qui vous amène et découvrir vos premiers exercices.",l:["Échange sur vos attentes","Premiers exercices de respiration","Un exercice à refaire chez vous"]},
+ {t:"Séance de suivi",d:"60 min",p:60,img:"img/feuilles.jpg",alt:"Feuilles d'eucalyptus dans une lumière douce",txt:"On reprend où l'on s'était arrêté et on approfondit les exercices qui vous font du bien.",l:["Point sur la semaine écoulée","Pratique guidée","Ajustement de vos exercices"]},
+ {t:"Séance en visio",d:"60 min",p:60,img:"img/cabinet.jpg",alt:"Fauteuil près d'une fenêtre, à la maison",txt:"La même séance, depuis chez vous, avec un simple lien vidéo envoyé après confirmation.",l:["Lien envoyé par e-mail","Pratique depuis votre fauteuil","Idéal hors de Marseille"]},
+ {t:"Forfait 5 séances",d:"5 × 60 min",p:275,img:"img/mer.jpg",alt:"Femme assise face à la mer au coucher du soleil",txt:"Un accompagnement complet sur quelques semaines, pour installer durablement de nouveaux repères.",l:["Cinq séances à votre rythme","Programme adapté à votre objectif","Réservation de la première séance"]}
+];
+const $=s=>document.querySelector(s);
+const etat={seance:null,jour:null,heure:null};
+
+/* menu mobile */
+const burger=$('.burger'),menu=$('#menu');
+burger.addEventListener('click',()=>{const o=menu.classList.toggle('ouvert');burger.setAttribute('aria-expanded',o)});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('ouvert');burger.setAttribute('aria-expanded',false)}));
+
+/* sélecteur de séances */
+const onglets=$('#onglets'),scene=$('#scene');
+SEANCES.forEach((s,i)=>{
+  const b=document.createElement('button');
+  b.className='onglet';b.setAttribute('role','tab');b.id='tab'+i;b.setAttribute('aria-controls','scene');
+  b.innerHTML=`<span class="n">0${i+1}</span><span class="t">${s.t}</span><span class="d">${s.d}</span>`;
+  b.addEventListener('click',()=>montrer(i));
+  b.addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();montrer((i+1)%SEANCES.length,true)}if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();montrer((i-1+SEANCES.length)%SEANCES.length,true)}});
+  onglets.appendChild(b);
+});
+function montrer(i,focus){
+  onglets.querySelectorAll('.onglet').forEach((b,k)=>{b.setAttribute('aria-selected',k===i);b.tabIndex=k===i?0:-1});
+  if(focus)onglets.children[i].focus();
+  const s=SEANCES[i];
+  scene.setAttribute('aria-labelledby','tab'+i);
+  scene.innerHTML=`<img src="${s.img}" alt="${s.alt}" width="800" height="1000"><div><h3>${s.t}</h3><div class="meta"><div><b>${s.d}</b>durée</div><div><b>${s.p} €</b>tarif</div></div><p>${s.txt}</p><ul>${s.l.map(x=>`<li>${x}</li>`).join('')}</ul><a class="cta" href="#rdv" data-choisir="${i}">Réserver cette séance</a></div>`;
+  scene.querySelector('[data-choisir]').addEventListener('click',()=>choisirSeance(i));
+}
+montrer(0);
+
+/* réservation */
+const pas=document.querySelectorAll('.pas i');
+function ecran(n){document.querySelectorAll('.ecran').forEach(e=>e.classList.remove('on'));$('#e'+n).classList.add('on');pas.forEach((p,k)=>p.classList.toggle('on',k<Math.min(n,4)));const h=$('#e'+n+' h3');if(h){h.tabIndex=-1;h.focus({preventScroll:true})}}
+const cs=$('#choix-seance');
+SEANCES.forEach((s,i)=>{const b=document.createElement('button');b.setAttribute('aria-pressed','false');b.innerHTML=`<span>${s.t}<small>${s.d}</small></span><b>${s.p} €</b>`;b.addEventListener('click',()=>choisirSeance(i,true));cs.appendChild(b)});
+function choisirSeance(i,resterIci){
+  etat.seance=i;cs.querySelectorAll('button').forEach((b,k)=>b.setAttribute('aria-pressed',k===i));
+  $('#s1').disabled=false;recap();
+  if(!resterIci){ecran(1)}
+}
+$('#s1').addEventListener('click',()=>ecran(2));
+
+const nomsJ=['lun','mar','mer','jeu','ven','sam','dim'];
+const auj=new Date();auj.setHours(0,0,0,0);
+const jours=$('#jours');
+$('#mois').textContent=auj.toLocaleDateString('fr-FR',{month:'long',year:'numeric'}).replace(/^./,c=>c.toUpperCase());
+nomsJ.forEach(n=>{const s=document.createElement('span');s.className='nom';s.textContent=n;jours.appendChild(s)});
+const debut=new Date(auj);debut.setDate(auj.getDate()-((auj.getDay()+6)%7));
+for(let k=0;k<21;k++){
+  const d=new Date(debut);d.setDate(debut.getDate()+k);
+  const b=document.createElement('button');b.className='jour';b.textContent=d.getDate();
+  const ferme=d<=auj||d.getDay()===0||d.getDay()===1||k%9===4;
+  b.disabled=ferme;b.setAttribute('aria-label',d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})+(ferme?' (indisponible)':''));
+  b.setAttribute('aria-pressed','false');
+  b.addEventListener('click',()=>{etat.jour=d;etat.heure=null;jours.querySelectorAll('.jour').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');heures(d);recap();$('#s2').disabled=true});
+  jours.appendChild(b);
+}
+function heures(d){
+  const base=['9 h 30','11 h','14 h','15 h 30','17 h','18 h 30'];
+  const libres=base.filter((h,i)=>(d.getDate()+i)%4!==0);
+  const z=$('#zone-heures');z.innerHTML='<div class="heures"></div>';
+  libres.forEach(h=>{const b=document.createElement('button');b.className='heure';b.textContent=h;b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>{etat.heure=h;z.querySelectorAll('.heure').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');$('#s2').disabled=false;recap()});z.firstChild.appendChild(b)});
+}
+$('#s2').addEventListener('click',()=>ecran(3));
+$('#s3').addEventListener('click',()=>{
+  const ids=['prenom','nom','email','tel'];
+  for(const id of ids){const el=$('#'+id);if(!el.value.trim()||(id==='email'&&!/^\S+@\S+\.\S+$/.test(el.value))){$('#err').textContent=id==='email'&&el.value?'Cette adresse e-mail ne semble pas valide.':'Merci de remplir ce champ.';el.focus();return}}
+  $('#err').textContent='';ecran(4);
+});
+$('#s4').addEventListener('click',()=>{const s=SEANCES[etat.seance];$('#msg-ok').textContent=`${s.t} le ${etat.jour.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})} à ${etat.heure}. Laure confirme votre rendez-vous sous 24 h par e-mail ; vous recevrez un rappel la veille.`;ecran(5)});
+document.querySelectorAll('[data-retour]').forEach(b=>b.addEventListener('click',()=>ecran(+b.dataset.retour)));
+$('#recommencer').addEventListener('click',()=>{Object.assign(etat,{seance:null,jour:null,heure:null});cs.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed','false'));jours.querySelectorAll('.jour').forEach(x=>x.setAttribute('aria-pressed','false'));$('#zone-heures').innerHTML='<p class="vide">Choisissez un jour pour voir les horaires disponibles.</p>';$('#s1').disabled=true;$('#s2').disabled=true;recap();ecran(1)});
+document.querySelectorAll('[data-seance]').forEach(a=>a.addEventListener('click',()=>choisirSeance(+a.dataset.seance)));
+function recap(){
+  const s=etat.seance!=null?SEANCES[etat.seance]:null;
+  $('#r-seance').textContent=s?s.t:'—';
+  $('#r-date').textContent=etat.jour?etat.jour.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'}):'—';
+  $('#r-heure').textContent=etat.heure||'—';
+  $('#r-prix').textContent=s?s.p+' €':'—';
+}
+
+/* apparitions */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vu');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

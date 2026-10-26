@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Espace de gestion · démo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--papier:#f4efe7;--blanc:#fbf8f3;--encre:#1f211d;--doux:#6d6a62;--ligne:rgba(31,33,29,.14);--sauge:#5e7464;--sauge-2:#dfe6dc;--nuit:#1d2420;--rouge:#9a3b2b;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Instrument Sans',system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--papier);color:var(--encre);font-family:var(--sans);font-size:16px;line-height:1.5}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--sauge);outline-offset:2px}
+.demo{background:var(--nuit);color:#e9e5dc;font-size:13px;text-align:center;padding:9px 16px}
+.demo a{color:#a9bfae}
+.app{display:grid;grid-template-columns:250px 1fr;min-height:calc(100vh - 38px)}
+aside{background:var(--nuit);color:#cfc9be;padding:28px 18px}
+aside strong{display:block;font-family:var(--serif);font-size:24px;font-weight:500;color:#f1ede5;padding:0 10px 24px}
+aside button{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;text-align:left;background:none;border:0;color:inherit;padding:11px 12px;border-radius:6px;margin-bottom:4px;font-size:15px}
+aside button[aria-current="page"]{background:#3b4a40;color:#fff}
+aside button:hover{color:#fff}
+aside .badge{background:#a9bfae;color:var(--nuit);border-radius:99px;font-size:12px;font-weight:600;padding:1px 8px}
+main{padding:40px 48px}
+h1{font-family:var(--serif);font-weight:400;font-size:42px;margin:0 0 6px}
+.sous{color:var(--doux);margin:0 0 30px}
+.vue{display:none}.vue.on{display:block}
+table{width:100%;border-collapse:collapse;background:var(--blanc);border:1px solid var(--ligne)}
+th{text-align:left;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--doux);font-weight:600;padding:14px 18px;border-bottom:1px solid var(--ligne)}
+td{padding:16px 18px;border-bottom:1px solid var(--ligne);vertical-align:middle}
+td small{display:block;color:var(--doux)}
+.actions{display:flex;gap:8px;justify-content:flex-end}
+.ok{background:var(--sauge);color:#fff;border:0;border-radius:99px;padding:8px 16px;font-size:14px}
+.non{background:none;color:var(--rouge);border:1px solid #e0c3b9;border-radius:99px;padding:8px 16px;font-size:14px}
+.statut{font-size:14px;font-weight:600}
+.statut.v{color:var(--sauge)}.statut.r{color:var(--rouge)}
+.grille{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:900px}
+.carte{background:var(--blanc);border:1px solid var(--ligne);padding:22px}
+.carte h2{font-family:var(--serif);font-weight:400;font-size:26px;margin:0 0 14px}
+.ligne{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--ligne);font-size:15px}
+.ligne:last-child{border-bottom:0}
+.inter{position:relative;width:42px;height:24px;border-radius:99px;background:#cfc8bc;border:0;transition:background .2s}
+.inter::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:transform .2s}
+.inter[aria-checked="true"]{background:var(--sauge)}
+.inter[aria-checked="true"]::after{transform:translateX(18px)}
+input{font:inherit;width:90px;padding:7px 10px;border:1px solid var(--ligne);background:#fff;text-align:right}
+.enr{margin-top:16px;background:var(--encre);color:#fff;border:0;border-radius:99px;padding:10px 20px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--encre);color:#fff;padding:12px 20px;border-radius:99px;font-size:14px;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.on{opacity:1}
+@media (max-width:860px){.app{grid-template-columns:1fr}aside{display:flex;overflow-x:auto;gap:6px;padding:12px}aside strong{display:none}aside button{white-space:nowrap;width:auto}main{padding:26px 18px}.grille{grid-template-columns:1fr}table,thead,tbody,tr,td{display:block}thead{display:none}tr{border-bottom:1px solid var(--ligne);padding:8px 0}td{border:0;padding:6px 16px}.actions{justify-content:flex-start}}
+</style>
+</head>
+<body>
+<div class="demo"><b>Démo</b> de votre espace de gestion · <a href="index.html">← retour au site</a></div>
+<div class="app">
+  <aside>
+    <strong>Mon espace</strong>
+    <button aria-current="page" data-vue="demandes">Demandes de rendez-vous <span class="badge" id="nb">3</span></button>
+    <button data-vue="horaires">Mes horaires</button>
+    <button data-vue="tarifs">Séances et tarifs</button>
+  </aside>
+  <main>
+    <section class="vue on" id="demandes">
+      <h1>Demandes en attente</h1>
+      <p class="sous">Acceptez ou refusez : la personne est prévenue par e-mail automatiquement.</p>
+      <table>
+        <thead><tr><th>Date</th><th>Séance</th><th>Personne</th><th>Paiement</th><th></th></tr></thead>
+        <tbody>
+          <tr><td>Mercredi<small>11 h</small></td><td>Première séance<small>75 min</small></td><td>Personne A<small>stress au travail</small></td><td>70 € en attente</td><td><div class="actions"><button class="ok">Accepter</button><button class="non">Refuser</button></div></td></tr>
+          <tr><td>Jeudi<small>17 h</small></td><td>Séance de suivi<small>60 min</small></td><td>Personne B<small>sommeil</small></td><td>60 € en attente</td><td><div class="actions"><button class="ok">Accepter</button><button class="non">Refuser</button></div></td></tr>
+          <tr><td>Samedi<small>9 h 30</small></td><td>Séance en visio<small>60 min</small></td><td>Personne C<small>examens</small></td><td>60 € en attente</td><td><div class="actions"><button class="ok">Accepter</button><button class="non">Refuser</button></div></td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="vue" id="horaires">
+      <h1>Mes horaires</h1>
+      <p class="sous">Ouvrez ou fermez un jour : le site se met à jour tout de suite.</p>
+      <div class="grille">
+        <div class="carte"><h2>Jours de consultation</h2>
+          <div class="ligne">Mardi <button class="inter" role="switch" aria-checked="true" aria-label="Mardi"></button></div>
+          <div class="ligne">Mercredi <button class="inter" role="switch" aria-checked="true" aria-label="Mercredi"></button></div>
+          <div class="ligne">Jeudi <button class="inter" role="switch" aria-checked="true" aria-label="Jeudi"></button></div>
+          <div class="ligne">Vendredi <button class="inter" role="switch" aria-checked="true" aria-label="Vendredi"></button></div>
+          <div class="ligne">Samedi <button class="inter" role="switch" aria-checked="true" aria-label="Samedi"></button></div>
+        </div>
+        <div class="carte"><h2>Absences</h2>
+          <div class="ligne">Vacances de Noël <span style="color:var(--doux)">22 déc. → 2 janv.</span></div>
+          <div class="ligne">Formation <span style="color:var(--doux)">14 nov.</span></div>
+          <button class="enr" data-toast="Absence ajoutée (démo)">Ajouter une absence</button>
+        </div>
+      </div>
+    </section>
+    <section class="vue" id="tarifs">
+      <h1>Séances et tarifs</h1>
+      <p class="sous">Changez un prix ou une durée, enregistrez : c'est en ligne.</p>
+      <div class="carte" style="max-width:620px">
+        <div class="ligne">Première séance · 75 min <span><input value="70" aria-label="Tarif première séance"> €</span></div>
+        <div class="ligne">Séance de suivi · 60 min <span><input value="60" aria-label="Tarif séance de suivi"> €</span></div>
+        <div class="ligne">Séance en visio · 60 min <span><input value="60" aria-label="Tarif séance en visio"> €</span></div>
+        <div class="ligne">Forfait 5 séances <span><input value="275" aria-label="Tarif forfait"> €</span></div>
+        <button class="enr" data-toast="Tarifs enregistrés (démo)">Enregistrer</button>
+      </div>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const toast=t=>{const el=document.getElementById('toast');el.textContent=t;el.classList.add('on');setTimeout(()=>el.classList.remove('on'),2200)};
+document.querySelectorAll('aside button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('aside button').forEach(x=>x.removeAttribute('aria-current'));b.setAttribute('aria-current','page');document.querySelectorAll('.vue').forEach(v=>v.classList.toggle('on',v.id===b.dataset.vue))}));
+let nb=3;
+document.querySelectorAll('tbody tr').forEach(tr=>{
+  const fin=(txt,cl)=>{tr.querySelector('.actions').innerHTML=`<span class="statut ${cl}">${txt}</span>`;tr.cells[3].textContent=cl==='v'?tr.cells[3].textContent.replace('en attente','encaissé'):'remboursé';nb--;document.getElementById('nb').textContent=nb;};
+  tr.querySelector('.ok').addEventListener('click',()=>{fin('Confirmé · e-mail envoyé','v');toast('Rendez-vous confirmé, paiement encaissé (démo)')});
+  tr.querySelector('.non').addEventListener('click',()=>{fin('Refusé · remboursé','r');toast('Demande refusée, personne prévenue (démo)')});
+});
+document.querySelectorAll('.inter').forEach(b=>b.addEventListener('click',()=>{const v=b.getAttribute('aria-checked')!=='true';b.setAttribute('aria-checked',v);toast(b.getAttribute('aria-label')+(v?' ouvert':' fermé')+' (démo)')}));
+document.querySelectorAll('[data-toast]').forEach(b=>b.addEventListener('click',()=>toast(b.dataset.toast)));
+</script>
+</body>
+</html>
